@@ -1,19 +1,30 @@
 <script>
-import CardList from "./CardList.vue";
+import Card from "./SingleCard.vue";
+import { store } from "../data/store"
 export default {
     data() {
         return {
-            title: "Hello World",
+            store,
+            baseUrlImg: "https://image.tmdb.org/t/p/original",
         };
     },
     components: {
-        CardList,
+        Card,
     },
 };
 </script>
 
 <template>
-    <CardList />
+    <!-- PARTE FILM -->
+    <div class="card-list py-3">
+        <div class="container-fluid">
+            <h2>FILM</h2>
+            <div class="row">
+                <Card v-for="movie in store.movies" :copertina="`${baseUrlImg}${movie.poster_path}`" :titolo="movie.title"
+                    :lingua="movie.original_language" :desc="movie.overview"></Card>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>

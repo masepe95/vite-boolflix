@@ -4,5 +4,6 @@ export const store = reactive({
   movies: [],
   series: [],
   baseUri: "https://api.themoviedb.org/3/search/",
-  apiKey: "997dfbb33215f3029613f10e805298e2",
+  apiKey: "c5438c3246d108d7bf5f82a8989ecb2c",
+  baseImgUrl: "https://image.tmdb.org/t/p/original",
 });
