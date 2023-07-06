@@ -25,8 +25,8 @@ export default {
         </div>
         <div class="right-header d-flex align-items-center gap-3 px-3">
             <div class="input-group flex-nowrap">
-                <input type="text" v-model="searchText" class="form-control bg-dark"
-                    placeholder="Cerca un film o serie tv" />
+                <input @keyup.enter="$emit('startSearch', searchText)" type="text" v-model="searchText"
+                    class="form-control bg-dark" placeholder="Cerca un film o serie tv" />
                 <span @click="$emit('startSearch', searchText)" class="input-group-text bg-dark"
                     id="addon-wrapping"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></span>
             </div>

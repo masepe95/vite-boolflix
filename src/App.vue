@@ -19,6 +19,15 @@ export default {
           store.movies = response.data.results;
           console.log(store.movies);
         });
+      axios
+        .get(
+          `${store.baseUri}tv?api_key=${store.apiKey}&query=${text}&language=it`
+        )
+        .then((response) => {
+          store.series = "";
+          store.series = response.data.results;
+          console.log(store.series);
+        });
     },
   },
 };
