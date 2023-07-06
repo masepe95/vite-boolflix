@@ -18,7 +18,7 @@ export default {
     <!-- PARTE FILM -->
     <div class="card-list py-3">
         <div class="container-fluid">
-            <h2>FILM</h2>
+            <h2 class="text-center">Use Search Bar to start research!</h2>
             <div class="row">
                 <Card v-for="movie in store.movies" :copertina="`${baseUrlImg}${movie.poster_path}`" :titolo="movie.title"
                     :lingua="movie.original_language" :desc="movie.overview"></Card>
