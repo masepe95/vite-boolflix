@@ -23,7 +23,7 @@ export default {
             return availableFlags.includes(this.lingua);
         },
         flagSrc() {
-            const url = new URL(`../public/img/${[this.lingua]}.png`, import.meta.url);
+            const url = new URL(`../assets/img/${[this.lingua]}.png`, import.meta.url);
             return url.href
         }
     },
@@ -56,7 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 //SCSS
-img {
+.flip-card-front img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -91,6 +91,12 @@ img {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
+.flip-card-back img {
+    width: 10%;
+    margin-bottom: 20px;
+}
+
 
 .flip-card-front {
     background-color: #bbb;
