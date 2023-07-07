@@ -11,9 +11,28 @@ export default {
         lingua: String,
         copertina: String,
         desc: String,
+        vote: Number
     },
-
-};
+    computed: {
+        roundedVote() {
+            const vote = this.vote;
+            return Math.ceil(vote) / 2;
+        },
+        hasFlag() {
+            const availableFlags = ['it', 'en'];
+            return availableFlags.includes(this.lingua);
+        },
+        flagSrc() {
+            const url = new URL(`../public/img/${[this.lingua]}.png`, import.meta.url);
+            return url.href
+        }
+    },
+    methods: {
+        iconClass(n) {
+            return n <= this.roundedVote ? 'fas' : 'far';
+        }
+    }
+}
 </script>
 
 <template>
@@ -21,11 +40,13 @@ export default {
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img :src="copertina" alt="" />
+                    <img :src="copertina" alt="NO PICTURE" />
                 </div>
                 <div class="flip-card-back px-2">
                     <h1>{{ titolo }}</h1>
-                    <p>{{ lingua }}</p>
+                    <img v-if="hasFlag" :src="flagSrc" :alt="this.lingua">
+                    <span v-else> {{ lingua }}</span>
+                    <p> <font-awesome-icon v-for="n in 5" :key="n" :icon="[iconClass(n), 'star']" /> </p>
                     <p>{{ desc }}</p>
                 </div>
             </div>

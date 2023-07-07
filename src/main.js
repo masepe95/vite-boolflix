@@ -10,7 +10,16 @@ import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+import { faStar as SolidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as RegularStar } from "@fortawesome/free-regular-svg-icons";
 
-library.add(faUserSecret, faMagnifyingGlass, faBell, faSortDown);
+library.add(
+  faUserSecret,
+  faMagnifyingGlass,
+  faBell,
+  faSortDown,
+  SolidStar,
+  RegularStar
+);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
